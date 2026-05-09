@@ -18,6 +18,6 @@ public class JavaBankSystem {
         Scanner input = new Scanner(System.in);
         System.out.println("Please Enter the file to read: ");
         String filename = input.nextLine();
-        ArrayList<String> names = ApplicantFileReader.readNames("Applicant_Form.txt"); 
+        ArrayList<String> names = ApplicantFileReader.readNames("Applicants_Form.txt");
     }
 }
