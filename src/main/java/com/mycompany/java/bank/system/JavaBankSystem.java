@@ -4,6 +4,7 @@
 
 package com.mycompany.java.bank.system;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -17,5 +18,6 @@ public class JavaBankSystem {
         Scanner input = new Scanner(System.in);
         System.out.println("Please Enter the file to read: ");
         String filename = input.nextLine();
+        ArrayList<String> names = ApplicantFileReader.readNames("Applicant_Form.txt"); 
     }
 }
