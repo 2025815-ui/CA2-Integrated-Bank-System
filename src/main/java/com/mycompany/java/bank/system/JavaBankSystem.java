@@ -4,6 +4,9 @@
 
 package com.mycompany.java.bank.system;
 
+import java.util.Scanner;
+
+
 /**
  *
  * @author yarzarmin
@@ -11,6 +14,8 @@ package com.mycompany.java.bank.system;
 public class JavaBankSystem {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please Enter the file to read: ");
+        String filename = input.nextLine();
     }
 }
