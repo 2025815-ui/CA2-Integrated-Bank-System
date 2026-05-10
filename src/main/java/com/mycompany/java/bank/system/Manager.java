@@ -8,6 +8,33 @@ package com.mycompany.java.bank.system;
  *
  * @author yarzarmin
  */
-public class Manager {
+//abstract class for all manager subclass
+public abstract class Manager {
     
+    private int managerId;
+    private String managerType;
+    
+    //create constructor
+    public Manager(int managerId, String managerType){
+        this.managerId = managerId;
+        this.managerType = managerType;
+    }
+    
+    //getter for managerID
+    public int getmanagerId(){
+        return managerId;
+    }
+    
+    //getter for managertype
+    public String getmanagerType(){
+        return managerType;
+    }
+    
+    //abstract class for the reposonsible that will be used in the subclass.
+    public abstract String getResponsibilities();
+    
+    //to string manager print nicely
+    public String toString(){
+        return managerType;
+    }
 }
