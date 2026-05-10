@@ -8,6 +8,44 @@ package com.mycompany.java.bank.system;
  *
  * @author yarzarmin
  */
-public class Employee {
+
+//Abstract class for all employee subclass
+public abstract class Employee {
     
+    private String employeeName;
+    private Manager manager;
+    private Department department;
+    
+    //constructor
+    public Employee(String employeeName,Manager manager, Department department){
+        this.employeeName = employeeName;
+        this.manager = manager;
+        this.department = department;
+    }
+    
+    //getter for employeename
+    public String getemployeeName(){
+        return employeeName;
+    }
+    
+    //getter for manager
+    public Manager getManager(){
+        return manager;
+    }
+    
+    //getter for department
+    public Department getDepartment(){
+        return department;
+    }
+    
+    //abstract class for roles and every subclass to implement
+    public abstract String getRole();
+    
+    //to string print nicely
+    public String toString(){
+        return "Name: " + employeeName
+                + " | Role: " + getRole()
+                + " | Manager: " + manager.getmanagerType()
+                + " | Department: " + department.getDepartmentName();
+    }
 }
