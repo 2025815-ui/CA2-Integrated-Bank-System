@@ -34,6 +34,7 @@ public abstract class Manager {
     public abstract String getResponsibilities();
     
     //to string manager print nicely
+    @Override
     public String toString(){
         return managerType;
     }

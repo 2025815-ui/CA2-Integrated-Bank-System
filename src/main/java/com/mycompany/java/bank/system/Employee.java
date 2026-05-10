@@ -42,6 +42,7 @@ public abstract class Employee {
     public abstract String getRole();
     
     //to string print nicely
+    @Override
     public String toString(){
         return "Name: " + employeeName
                 + " | Role: " + getRole()
