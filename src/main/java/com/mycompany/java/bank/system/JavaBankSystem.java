@@ -11,6 +11,16 @@ import java.util.Scanner;
  * @author yarzarmin
  */
 public class JavaBankSystem {
+    
+      //static class for the menu option and this will call in main class
+    public static void displayMenu() {
+        System.out.println("\n======BANK SYSTEM======");
+        //using foreach loop to show all the options
+        for (MenuOption option : MenuOption.values()) {
+            System.out.println(option.getValue() + "." + option.getLabel());
+        }
+        System.out.println("\nEnter your choice: ");
+    }
 
     public static void main(String[] args) {
         
@@ -19,8 +29,9 @@ public class JavaBankSystem {
         System.out.println("Please Enter the file to read: ");
         String filename = input.nextLine(); //getting user input
         
-        ArrayList<String> names = ApplicantFileReader.readNames("Applicants_Form.txt");//reading the file
-
+        ArrayList<String> names = ApplicantFileReader.readNames(filename);//reading the file
+        
+      
         boolean running = true;
 
         while (running) {
@@ -46,14 +57,6 @@ public class JavaBankSystem {
         }
     }
 
-    //static class for the menu option and this will call in main class
-    public static void displayMenu() {
-        System.out.println("\n======BANK SYSTEM======");
-        //using foreach loop to show all the options
-        for (MenuOption option : MenuOption.values()) {
-            System.out.println(option.getValue() + "." + option.getLabel());
-        }
-        System.out.println("\nEnter your choice: ");
-    }
+  
 
 }

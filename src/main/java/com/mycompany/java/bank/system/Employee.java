@@ -37,15 +37,13 @@ public abstract class Employee {
     public Department getDepartment(){
         return department;
     }
-    
-    //abstract class for roles and every subclass to implement
+
     public abstract String getRole();
-    
     //to string print nicely
     @Override
     public String toString(){
         return "Name: " + employeeName
-                + " | Role: " + getRole()
+                + "Role: " + getRole()
                 + " | Manager: " + manager.getmanagerType()
                 + " | Department: " + department.getDepartmentName();
     }

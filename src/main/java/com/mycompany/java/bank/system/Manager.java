@@ -30,12 +30,10 @@ public abstract class Manager {
         return managerType;
     }
     
-    //abstract class for the reposonsible that will be used in the subclass.
-    public abstract String getResponsibilities();
-    
     //to string manager print nicely
     @Override
     public String toString(){
         return managerType;
     }
 }
+

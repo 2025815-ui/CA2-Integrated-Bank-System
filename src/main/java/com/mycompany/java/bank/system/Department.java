@@ -30,8 +30,6 @@ public abstract class Department {
         return departmentName;
     }
     
-    //abstract class for every subclass
-    public abstract String getDeparmentFunction();
     
     //to string department print nicely
     @Override
