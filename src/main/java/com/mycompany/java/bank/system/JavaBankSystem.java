@@ -51,6 +51,8 @@ public class JavaBankSystem {
                     
                 case 5:
                     
+                case 6:
+                    
                 default:
                     System.out.println("Invalid Choice!!!");
             }

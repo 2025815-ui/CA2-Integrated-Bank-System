@@ -8,6 +8,7 @@ package com.mycompany.java.bank.system;
  *
  * @author yarzarmin
  */
+// Subclass of Department
 public class ITDepartment extends Department{
     
     public ITDepartment(){
