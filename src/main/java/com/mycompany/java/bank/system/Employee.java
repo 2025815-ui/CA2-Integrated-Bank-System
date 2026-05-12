@@ -43,7 +43,7 @@ public abstract class Employee {
     @Override
     public String toString(){
         return "Name: " + employeeName
-                + "Role: " + getRole()
+                + "| Role: " + getRole()
                 + " | Manager: " + manager.getmanagerType()
                 + " | Department: " + department.getDepartmentName();
     }

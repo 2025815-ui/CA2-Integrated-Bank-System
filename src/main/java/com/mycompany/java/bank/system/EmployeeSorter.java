@@ -34,7 +34,7 @@ public class EmployeeSorter {
     }
     
     //Merging method - combine two sorted section
-    public static void merge(ArrayList<Employee> employees, int left, int right, int middle){
+    public static void merge(ArrayList<Employee> employees, int left, int middle, int right){
         
         //create temporary array to store
         ArrayList<Employee> temp = new ArrayList<>();
@@ -56,12 +56,12 @@ public class EmployeeSorter {
                 
                 temp.add(employees.get(j));//right comes first alphabetically
                 j++;
-            }
-            
-            //copy sorted into original list
+            }  
+
+        }
+                    //copy sorted into original list
             for(int k=0; k < temp.size(); k++){
                 employees.set(left + k, temp.get(k));
             }
-        }
     }
 }
