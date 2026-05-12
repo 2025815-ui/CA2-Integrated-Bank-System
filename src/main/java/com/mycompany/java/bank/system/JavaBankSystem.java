@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class JavaBankSystem {
     
+   static ArrayList<Employee> employees = new ArrayList<>();
       //static class for the menu option and this will call in main class
     public static void displayMenu() {
         System.out.println("\n======BANK SYSTEM======");
@@ -21,17 +22,29 @@ public class JavaBankSystem {
         }
         System.out.println("\nEnter your choice: ");
     }
+    
+    public static void LoadFromFile(String filename){
+        
+        ArrayList<Employee> loaded = ApplicantFileReader.LoadNameFromFile(filename);
+        
+        if(loaded.isEmpty()){
+            System.out.println("No Name loaded from file!");
+        }
+        
+        employees.addAll(loaded);
+        
+        ApplicantFileReader.displayFirst20(employees);
+          
+    }
+    
+    
 
     public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
         
-        System.out.println("Please Enter the file to read: ");
-        String filename = input.nextLine(); //getting user input
+        LoadFromFile("Applicants_Form.txt");
         
-        ArrayList<String> names = ApplicantFileReader.readNames(filename);//reading the file
-        
-      
         boolean running = true;
 
         while (running) {
@@ -41,9 +54,9 @@ public class JavaBankSystem {
             input.nextLine();
             
             switch(choice){
-                case 1:
+                case 1: 
                     
-                case 2:
+                case 2: 
                     
                 case 3:
                     

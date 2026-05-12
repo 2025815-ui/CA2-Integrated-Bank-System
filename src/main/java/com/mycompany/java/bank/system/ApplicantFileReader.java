@@ -90,4 +90,17 @@ public class ApplicantFileReader {
         System.out.println(employees.size() + " employees loaded from file.");
         return employees;
     }
+    
+    public static void displayFirst20(ArrayList<Employee> employees){
+        
+        EmployeeSorter.mergeSort(employees, 0, employees.size() -1);
+        
+        int limit = Math.min(20, employees.size());
+        
+//        System.out.println("\n===First "+ limit + " Employee sorted.");
+//        
+//        for(int i = 0; i < limit; i++){
+//            System.out.println( (i + 1)  + ". " + employees.get(i));
+//        }
+    }
 }
