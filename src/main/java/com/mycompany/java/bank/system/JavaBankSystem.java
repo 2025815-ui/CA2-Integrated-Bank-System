@@ -120,12 +120,21 @@ public class JavaBankSystem {
         System.out.println("Enter Employee name (First name & Last name): ");
         String addName = input.nextLine();
         
+        if(!inputValidator.isValidName(addName)){
+            return;
+        }
+        
         System.out.println("\n=====Enter Manager Type=====");
         System.out.println("1. Senior Manager");
         System.out.println("2. Assistant Manager");
         System.out.println("3. Team Lead");
         System.out.println("Enter your choice: ");
         int managerChoice = input.nextInt();
+        input.nextLine();
+        
+        if(!inputValidator.isValidManager(managerChoice)){
+            return;
+        }
         
         
         System.out.println("\n=====Select Department=====");
@@ -135,6 +144,11 @@ public class JavaBankSystem {
         System.out.println("4. Foreign Exhange");
         System.out.println("Enter your choice: ");
         int departmentChoice = input.nextInt();
+        input.nextLine();
+        
+        if(!inputValidator.isValidDepartment(departmentChoice)){
+            return;
+        }
         
         System.out.println("\n====Select Role=====");
         System.out.println("1. Teller");
@@ -142,6 +156,11 @@ public class JavaBankSystem {
         System.out.println("3. Security Guard");
         System.out.println("Enter your choice: ");
         int roleChoice = input.nextInt();
+        input.nextLine();
+        
+        if(!inputValidator.isValidRole(roleChoice)){
+            return;
+        }
         
         Manager manager;
         switch(managerChoice){
