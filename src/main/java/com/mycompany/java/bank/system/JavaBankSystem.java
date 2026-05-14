@@ -220,6 +220,7 @@ public class JavaBankSystem {
                     break;
 
                 case 5:
+                    running = false;
                     System.out.println("Exiting the program...");
                     break;
 
@@ -227,6 +228,7 @@ public class JavaBankSystem {
                     System.out.println("Invalid Choice!!!");
             }
         }
+        input.close();
     }
 
 }
