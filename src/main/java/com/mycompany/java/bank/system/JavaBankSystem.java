@@ -115,6 +115,70 @@ public class JavaBankSystem {
     
     public static void addEmployee(){
         
+        System.out.println("\n=====ADD EMPLOYEE=====");
+        
+        System.out.println("Enter Employee name (First name & Last name): ");
+        String addName = input.nextLine();
+        
+        System.out.println("\n=====Enter Manager Type=====");
+        System.out.println("1. Senior Manager");
+        System.out.println("2. Assistant Manager");
+        System.out.println("3. Team Lead");
+        System.out.println("Enter your choice: ");
+        int managerChoice = input.nextInt();
+        
+        
+        System.out.println("\n=====Select Department=====");
+        System.out.println("1. IT");
+        System.out.println("2. HR");
+        System.out.println("3. Loan");
+        System.out.println("4. Foreign Exhange");
+        System.out.println("Enter your choice: ");
+        int departmentChoice = input.nextInt();
+        
+        System.out.println("\n====Select Role=====");
+        System.out.println("1. Teller");
+        System.out.println("2. Loan Officer");
+        System.out.println("3. Security Guard");
+        System.out.println("Enter your choice: ");
+        int roleChoice = input.nextInt();
+        
+        Manager manager;
+        switch(managerChoice){
+            case 1: 
+                manager = new SeniorManager(); break;
+            case 2:
+                manager = new AssistantManager(); break;
+            default :
+                manager = new TeamLead(); break;
+        }
+        
+        Department department;
+        switch(departmentChoice){
+            case 1:
+                department = new ITDepartment(); break;
+            case 2:
+                department = new HRDepartment(); break;
+            case 3:
+                department = new LoanDepartment(); break;
+            default :
+                department = new ForeignExchangeDepartment(); break;
+                
+        }
+        
+        Employee employee;
+        switch(roleChoice){
+            case 1:
+                employee = new Teller(addName,manager,department); break;
+            case 2:
+                employee = new  LoanOfficer(addName,manager,department); break;
+            default:
+                employee = new SecurityGuard(addName,manager,department); break;
+        }
+        
+        employees.add(employee);
+        System.out.println("\n" + addName + " added successfully!");
+        System.out.println(employee);
     }
     
     
