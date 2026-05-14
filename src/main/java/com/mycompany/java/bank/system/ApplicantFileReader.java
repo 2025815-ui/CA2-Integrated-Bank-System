@@ -53,7 +53,7 @@ public class ApplicantFileReader {
 
     public static boolean isDuplicate(ArrayList<Employee> employees, String name) {
         for (Employee e : employees) {
-            if (e.getemployeeName().equalsIgnoreCase(name)) {
+            if (e.getEmployeeName().equalsIgnoreCase(name)) {
                 return true; // duplicate found
             }
         }
@@ -78,17 +78,8 @@ public class ApplicantFileReader {
         //convert each into employee object
         for (String name : names) {
 
-            boolean duplicate = false;
-            for (Employee existing : employees) {
-                if (existing.getemployeeName().equalsIgnoreCase(name)) {
-                    duplicate = true;
-                    break;
-                }
-            }
-
-            // Skip if duplicate
-            if (duplicate) {
-                continue;
+           if(isDuplicate(employees, name)){
+               continue;
             }
 
             //picking random manager subclass
@@ -111,12 +102,16 @@ public class ApplicantFileReader {
             switch (departmentIndex) {
                 case 1:
                     department = new ITDepartment();
+                    break;
                 case 2:
                     department = new HRDepartment();
+                    break;
                 case 3:
                     department = new LoanDepartment();
+                    break;
                 default:
                     department = new ForeignExchangeDepartment();
+                    break;
             };
 
             int rolesIndex = random.nextInt(3);

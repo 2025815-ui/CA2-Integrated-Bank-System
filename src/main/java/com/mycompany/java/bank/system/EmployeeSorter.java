@@ -46,8 +46,14 @@ public class EmployeeSorter {
         //comparing element from both
         while(i <= middle && j <= right){
             
-            //comparing name alphabetically
-            if(employees.get(i).getemployeeName().compareToIgnoreCase(employees.get(j).getemployeeName()) <= 0) {
+            // Get first name from left element by splitting the full name and taking the first word
+            String firstNameLeft = employees.get(i).getEmployeeName().split(" ")[0];
+            
+            // Get first name from right element by splitting the full name and taking the first word
+            String firstNameRight = employees.get(j).getEmployeeName().split(" ")[0];
+            
+            // Compare only the first names alphabetically to decide the order
+            if(firstNameLeft.compareToIgnoreCase(firstNameRight) <= 0) {
                 
                 temp.add(employees.get(i));//left comes first alphabetically
                 i++;
@@ -59,9 +65,22 @@ public class EmployeeSorter {
             }  
 
         }
-                    //copy sorted into original list
-            for(int k=0; k < temp.size(); k++){
-                employees.set(left + k, temp.get(k));
-            }
+        
+        // Copy the rest of the left elements to prevent duplicates or missing data
+        while(i <= middle){
+            temp.add(employees.get(i));
+            i++;
+        }
+        
+        // Copy the rest of the right elements to prevent duplicates or missing data
+        while(j <= right){
+            temp.add(employees.get(j));
+            j++;
+        }
+
+        //copy sorted into original list
+        for(int k=0; k < temp.size(); k++){
+            employees.set(left + k, temp.get(k));
+        }
     }
 }

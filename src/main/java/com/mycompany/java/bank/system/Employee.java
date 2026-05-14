@@ -24,7 +24,7 @@ public abstract class Employee {
     }
     
     //getter for employeename
-    public String getemployeeName(){
+    public String getEmployeeName(){
         return employeeName;
     }
     

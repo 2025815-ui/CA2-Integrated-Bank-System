@@ -25,7 +25,7 @@ public class EmployeeSearcher {
             int middle = (left + right)/2;
             
             //keeping middle in current
-            String currentName = employee.get(middle).getemployeeName();
+            String currentName = employee.get(middle).getEmployeeName();
             
             //compare middle with the searching name
             int comparison = currentName.compareToIgnoreCase(targetName);
