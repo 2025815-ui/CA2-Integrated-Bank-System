@@ -82,6 +82,33 @@ public class JavaBankSystem {
     
     
     public static void searchEmployee(){
+        //check if the list is empty
+        if(employees.isEmpty()){
+            System.out.println("No employee to search!");
+            System.out.println("Please load a file or add employee first");
+            return;
+        }
+        //sorting before search, because binarysearch works on sorted list.
+        EmployeeSorter.mergeSort(employees, 0, employees.size()-1);
+        
+        //Ask user for name to search
+        System.out.println("\nEnter employee name to search..");
+        String searchName = input.nextLine();
+        
+        //run binarysearch on sorted list and stored the name in result.
+        Employee result = EmployeeSearcher.binarySearch(employees, searchName);
+        
+        //checking if the name is in the list
+        if(result != null){
+            System.out.println("\nEmployee found.");
+            System.out.println("====================");
+            System.out.println(result);
+            System.out.println("====================");
+
+        }else{
+            System.out.println("Employee not found!");
+            System.out.println("\nMake sure Employee name is spelled correctly.");
+        }
         
     }
     
