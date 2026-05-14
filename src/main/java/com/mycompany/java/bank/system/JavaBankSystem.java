@@ -89,17 +89,21 @@ public class JavaBankSystem {
             return;
         }
         //sorting before search, because binarysearch works on sorted list.
-        EmployeeSorter.mergeSort(employees, 0, employees.size()-1);
+        EmployeeSorter.mergeSort(employees, 0, employees.size() - 1);
         
         //Ask user for name to search
         System.out.println("\nEnter employee name to search..");
+                
         String searchName = input.nextLine();
         
         //run binarysearch on sorted list and stored the name in result.
-        Employee result = EmployeeSearcher.binarySearch(employees, searchName);
+        int index = EmployeeSearcher.binarySearch(employees, 0, employees.size() -1 , searchName);
         
         //checking if the name is in the list
-        if(result != null){
+        if(index != -1){
+            
+            Employee result= employees.get(index);
+            
             System.out.println("\nEmployee found.");
             System.out.println("====================");
             System.out.println(result);

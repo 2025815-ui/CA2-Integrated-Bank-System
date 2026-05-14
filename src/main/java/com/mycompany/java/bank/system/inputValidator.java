@@ -20,7 +20,7 @@ public class inputValidator {
         }
         
         //check if there is number or special character input
-        if(!name.matches("[a-zA-Z]+") || name.trim().isEmpty()){
+        if(!name.matches("[a-zA-Z ]+") || name.trim().isEmpty()){
             System.out.println("Name must contain letters only!");
             return false;
         }

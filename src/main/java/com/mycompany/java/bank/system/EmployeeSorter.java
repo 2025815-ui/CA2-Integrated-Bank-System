@@ -47,13 +47,13 @@ public class EmployeeSorter {
         while(i <= middle && j <= right){
             
             // Get first name from left element by splitting the full name and taking the first word
-            String firstNameLeft = employees.get(i).getEmployeeName().split(" ")[0];
+              String leftName = employees.get(i).getEmployeeName();
             
             // Get first name from right element by splitting the full name and taking the first word
-            String firstNameRight = employees.get(j).getEmployeeName().split(" ")[0];
+              String rightName = employees.get(j).getEmployeeName();
             
             // Compare only the first names alphabetically to decide the order
-            if(firstNameLeft.compareToIgnoreCase(firstNameRight) <= 0) {
+            if(leftName.compareToIgnoreCase(rightName) <= 0) {
                 
                 temp.add(employees.get(i));//left comes first alphabetically
                 i++;

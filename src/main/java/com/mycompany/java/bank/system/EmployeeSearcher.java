@@ -12,39 +12,35 @@ import java.util.ArrayList;
 //Searching using Binary Search Algorithms
 public class EmployeeSearcher {
     
-    public static Employee binarySearch(ArrayList<Employee> employee, String targetName){
-        
-        //start with full array
-        int left = 0;
-        int right = employee.size()-1;
-        
-        //keep searching until valid range 
-        while(left <= right){
-            
-            //finding middle position
-            int middle = (left + right)/2;
-            
-            //keeping middle in current
-            String currentName = employee.get(middle).getEmployeeName();
-            
-            //compare middle with the searching name
-            int comparison = currentName.compareToIgnoreCase(targetName);
-            
-            //Name found
-            if(comparison == 0){
-                return employee.get(middle);
-            }
-            //current comes before targetname
-            if(comparison < 0){
-                
-                left = middle +1;
-             //current comes after targetname   
-            }else{
-                
-                left = middle -1;
-            }
+
+    public static int binarySearch(ArrayList<Employee> employees, int left, int right, String target) {
+        // Base case: element not found
+        if (left > right) {
+            return -1;
         }
+
+        // Find the middle index
+        int mid = left + (right - left) / 2;
         
-        return null;//name not found in the list
+        
+        String midName = employees.get(mid).getEmployeeName();
+        
+        
+        int comparrison = midName.compareToIgnoreCase(target);
+
+        // Check if the middle element is the target
+        if (comparrison == 0) {
+            return mid; // Element found
+        }
+
+        // If target is smaller, search the left half
+        if (comparrison > 0) {
+            return binarySearch(employees, left, mid - 1, target);
+        }
+        // Else, search the right half
+        else {
+            return binarySearch(employees, mid + 1, right, target);
+        }
     }
+    
 }
