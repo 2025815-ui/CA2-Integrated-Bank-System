@@ -205,11 +205,6 @@ public class JavaBankSystem {
     }
     
     
-    public static void createBinaryTree(){
-        
-    }
-    
-    
 
     public static void main(String[] args) {
 
@@ -239,7 +234,7 @@ public class JavaBankSystem {
                     break;
 
                 case 4:
-                    createBinaryTree();
+                    EmployeeHierarchy.buildHierarchy(employees);
                     break;
 
                 case 5:

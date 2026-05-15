@@ -114,7 +114,7 @@ public class ApplicantFileReader {
                     break;
             };
 
-            int rolesIndex = random.nextInt(3);
+            int rolesIndex = random.nextInt(4);
             Employee employee;
             switch (rolesIndex) {
                 case 1:
