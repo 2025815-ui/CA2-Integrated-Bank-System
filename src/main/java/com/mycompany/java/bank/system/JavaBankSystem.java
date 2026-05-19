@@ -56,21 +56,26 @@ public class JavaBankSystem {
         }
         System.out.println(added + " employee added!");
 
-        ApplicantFileReader.displayFirst20(employees);
+//        ApplicantFileReader.displayFirst20(employees);
 
     }
     
     public static void sortEmployee(){
         
+        // Check list is not empty before sorting
         if(employees.isEmpty()){
             System.out.println("No employee to sort!");
             System.out.println("Please load a file or add employee first");
             return;
         }
         
+        // Run merge sort on full list — recursive algorithm
         EmployeeSorter.mergeSort(employees,0, employees.size() - 1);
         System.out.println("\nEmployee sorted successfully!");
         
+        
+        // Display only first 20 as required by brief
+        // Math.min prevents crash if list has fewer than 20
         int limit = Math.min(20, employees.size());
         System.out.println("=====First " + limit + " sorted employees.");
         for(int i = 0; i< limit; i++){
@@ -205,6 +210,45 @@ public class JavaBankSystem {
     }
     
     
+    public static void loadFromFileMenu(){
+        
+        System.out.println("\nPlease Enter file name to read : ");//asking filename from user
+        String fileName = input.nextLine();
+        
+        
+        ArrayList<Employee> loaded = ApplicantFileReader.LoadNameFromFile(fileName); //create arraylist to store
+        
+        //check if file is empty
+        if(loaded.isEmpty()){
+            System.out.println("No employee Loaded!");
+            return;
+        }
+        // Add only non duplicate employees
+        int added = 0;
+        
+        for (Employee e : loaded) {
+
+            boolean duplicate = false;
+            
+            for (Employee existing : employees) {
+                
+                if (existing.getEmployeeName().equalsIgnoreCase(e.getEmployeeName())) {
+                    
+                    duplicate = true;
+                    break; // stop checking — already found a match
+                }
+            }
+            if(!duplicate){
+                employees.add(e);
+                added++;
+                
+            }
+        }
+        
+        System.out.println(added + " new employees added from file!");
+        ApplicantFileReader.displayFirst20(employees);
+    }
+    
 
     public static void main(String[] args) {
 
@@ -220,24 +264,28 @@ public class JavaBankSystem {
             input.nextLine();
 
             switch (choice) {
+                
                 case 1:
+                    loadFromFileMenu();
+                    break;
+                case 2:
                     sortEmployee();
                     break;
                 
 
-                case 2:
+                case 3:
                     searchEmployee();
                     break;
 
-                case 3:
+                case 4:
                     addEmployee();
                     break;
 
-                case 4:
+                case 5:
                     EmployeeHierarchy.buildHierarchy(employees);
                     break;
 
-                case 5:
+                case 6:
                     running = false;
                     System.out.println("Exiting the program...");
                     break;

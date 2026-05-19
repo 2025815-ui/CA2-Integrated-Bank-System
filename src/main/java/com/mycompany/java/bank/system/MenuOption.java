@@ -10,11 +10,12 @@ package com.mycompany.java.bank.system;
  */
 public enum MenuOption {
     //create menu with enum, each constant stores a number and a display label
-    SORT_EMPLOYEE(1,"Sort Employees"),
-    SEARCH_EMPLOYEE(2,"Search Employees"),
-    ADD_EMPLOYEE(3,"Add Employee"),
-    CREATE_BINARY_TREE(4,"Create Binary Tree"),
-    EXIT(5,"Exit the program");
+    LOAD_FILE(1,"Load the file"),
+    SORT_EMPLOYEE(2,"Sort Employees"),
+    SEARCH_EMPLOYEE(3,"Search Employees"),
+    ADD_EMPLOYEE(4,"Add Employee"),
+    CREATE_BINARY_TREE(5,"Create Binary Tree"),
+    EXIT(6,"Exit the program");
     
     private int value;
     private String label;
